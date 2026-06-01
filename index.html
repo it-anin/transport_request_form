@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>แบบฟอร์มขออนุมัติขนส่ง (สำนักงานใหญ่)</title>
+  <title>แบบฟอร์มขออนุมัติขนส่ง อนิน ฟาร์มมา</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
 
@@ -256,9 +256,9 @@
   <div class="header-icon">
     <svg viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
   </div>
-  <h1>แบบฟอร์มขออนุมัติขนส่ง (สำนักงานใหญ่)</h1>
+  <h1>แบบฟอร์มขออนุมัติขนส่ง</h1>
+  <p>ยอด 5000 บาท ส่งฟรี (เลือกอนินรับผิดชอบค่าขนส่ง ไม่ต้องลงหมายเหตุ)</p>
   <ul class="header-notes">
-    <li>ยอด 5000 บาท ส่งฟรี (เลือกบิ๊กยารับผิดชอบค่าขนส่ง ไม่ต้องลงหมายเหตุ)</li>
     <li>กรณีบริษัทไม่ออกค่าจัดส่งให้ ให้ใส่เลขที่เอกสารและคิดค่าขนส่งตามระบบ SeniorSoft Promaxx (รับเงินจากผู้รับผิดชอบ)</li>
     <li>กรณีบริษัทออกค่าจัดส่งเอง ไม่ต้องใส่เลขที่เอกสารและใส่ค่าขนส่งตาม Platform นั้นๆ (เช่น ส่งของระหว่างสาขา)</li>
   </ul>
@@ -282,27 +282,7 @@
   </div>
 </div>
 
-<!-- ===== SECTION 2: ข้อมูลการชำระเงิน ===== -->
-<div class="card">
-  <div class="section-title">
-    <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-    ข้อมูลการชำระเงิน
-  </div>
-  <div class="field" id="f-payment_type">
-    <label>มีเงินค่าจัดส่งเข้าที่บิ๊กยา <span class="req">*</span></label>
-    <div class="select-wrap">
-      <select id="payment_type">
-        <option value="">-- เลือกประเภทการชำระ --</option>
-        <option value="สด">สด</option>
-        <option value="โอน">โอน</option>
-        <option value="บัตร">บัตร</option>
-        <option value="ไม่มี">ไม่มี</option>
-      </select>
-    </div>
-  </div>
-</div>
-
-<!-- ===== SECTION 3: ข้อมูลการจัดส่ง ===== -->
+<!-- ===== SECTION 2: ข้อมูลการจัดส่ง ===== -->
 <div class="card">
   <div class="section-title">
     <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -336,11 +316,31 @@
   </div>
   <div class="field" id="f-transport_detail">
     <label>รายละเอียดในการใช้ขนส่ง <span class="req">*</span></label>
-    <textarea id="transport_detail" placeholder="โปรดระบุรายละเอียด เช่น ประเภทสินค้า น้ำหนัก หรือข้อมูลเพิ่มเติม"></textarea>
+    <div class="select-wrap">
+      <select id="transport_detail" onchange="toggleBranchField()">
+        <option value="">-- โปรดระบุ --</option>
+        <option value="ส่งของให้ลูกค้า">ส่งของให้ลูกค้า</option>
+        <option value="ส่งของระหว่างสาขา">ส่งของระหว่างสาขา</option>
+        <option value="ส่งของคืนให้ Supplier">ส่งของคืนให้ Supplier</option>
+        <option value="ส่งพัสดุอื่นๆ">ส่งพัสดุอื่นๆ</option>
+        <option value="ส่งของให้ลูกค้าแทนสาขาอื่น">ส่งของให้ลูกค้าแทนสาขาอื่น</option>
+      </select>
+    </div>
+  </div>
+  <div class="field" id="f-branch_replace" style="display:none;">
+    <label>ระบุสาขาที่ส่งแทน <span class="req">*</span></label>
+    <div class="select-wrap">
+      <select id="branch_replace">
+        <option value="">-- เลือกสาขา --</option>
+        <option value="SRC">SRC</option>
+        <option value="KKL">KKL</option>
+        <option value="SSS">SSS</option>
+      </select>
+    </div>
   </div>
 </div>
 
-<!-- ===== SECTION 4: ข้อมูลลูกค้า ===== -->
+<!-- ===== SECTION 3: ข้อมูลลูกค้า / ผู้รับ ===== -->
 <div class="card">
   <div class="section-title">
     <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
@@ -350,9 +350,25 @@
     <label>ชื่อ(ลูกค้า/บริษัท) / ที่อยู่ / เบอร์โทรฯ <span class="req">*</span></label>
     <textarea id="customer_info" placeholder="ชื่อลูกค้าหรือบริษัท&#10;ที่อยู่สำหรับจัดส่ง&#10;เบอร์โทรศัพท์" style="min-height:96px;"></textarea>
   </div>
-  <div class="field">
-    <label>กรณีส่งของให้ลูกค้าแทนสาขาอื่น <span class="badge">ถ้ามี</span></label>
-    <input type="text" id="branch_replace" placeholder="ระบุสาขาที่ส่งแทน (ถ้ามี)" />
+</div>
+
+<!-- ===== SECTION 4: ข้อมูลการชำระเงิน ===== -->
+<div class="card">
+  <div class="section-title">
+    <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+    ข้อมูลการชำระเงิน
+  </div>
+  <div class="field" id="f-payment_type">
+    <label>มีเงินค่าจัดส่งเข้าที่อนิน <span class="req">*</span></label>
+    <div class="select-wrap">
+      <select id="payment_type">
+        <option value="">-- เลือกประเภทการชำระ --</option>
+        <option value="สด">สด</option>
+        <option value="โอน">โอน</option>
+        <option value="บัตร">บัตร</option>
+        <option value="ไม่มี">ไม่มี</option>
+      </select>
+    </div>
   </div>
 </div>
 
@@ -402,13 +418,22 @@
   const requiredFields = [
     { id: 'emp_name',         label: 'ชื่อพนักงาน' },
     { id: 'dept',             label: 'แผนก' },
-    { id: 'payment_type',     label: 'ประเภทการชำระเงิน' },
     { id: 'origin',           label: 'ต้นทาง' },
     { id: 'destination',      label: 'ปลายทาง' },
     { id: 'carrier',          label: 'จัดส่งโดย' },
     { id: 'transport_detail', label: 'รายละเอียดการขนส่ง' },
     { id: 'customer_info',    label: 'ข้อมูลลูกค้า' },
+    { id: 'payment_type',     label: 'ประเภทการชำระเงิน' },
   ];
+
+  function toggleBranchField() {
+    const val = document.getElementById('transport_detail').value;
+    const wrap = document.getElementById('f-branch_replace');
+    wrap.style.display = val === 'ส่งของให้ลูกค้าแทนสาขาอื่น' ? 'block' : 'none';
+    if (val !== 'ส่งของให้ลูกค้าแทนสาขาอื่น') {
+      document.getElementById('branch_replace').value = '';
+    }
+  }
 
   function handleSubmit() {
     let firstError = null;
@@ -429,17 +454,18 @@
       return;
     }
 
+    const branchWrap = document.getElementById('f-branch_replace');
     const data = {
       timestamp:        new Date().toLocaleString('th-TH'),
       emp_name:         document.getElementById('emp_name').value,
       dept:             document.getElementById('dept').value,
-      payment_type:     document.getElementById('payment_type').value,
       origin:           document.getElementById('origin').value,
       destination:      document.getElementById('destination').value,
       carrier:          document.getElementById('carrier').value,
       transport_detail: document.getElementById('transport_detail').value,
+      branch_replace:   branchWrap.style.display !== 'none' ? document.getElementById('branch_replace').value : '',
       customer_info:    document.getElementById('customer_info').value,
-      branch_replace:   document.getElementById('branch_replace').value,
+      payment_type:     document.getElementById('payment_type').value,
       cost_promaxx:     document.getElementById('cost_promaxx').value,
       cost_platform:    document.getElementById('cost_platform').value,
       doc_number:       document.getElementById('doc_number').value,
@@ -477,11 +503,12 @@
   }
 
   function resetForm() {
-    ['emp_name','dept','payment_type','origin','destination','carrier',
-     'transport_detail','customer_info','branch_replace','cost_promaxx',
-     'cost_platform','doc_number','tracking_number'].forEach(id => {
+    ['emp_name','dept','origin','destination','carrier',
+     'transport_detail','branch_replace','customer_info','payment_type',
+     'cost_promaxx','cost_platform','doc_number','tracking_number'].forEach(id => {
       document.getElementById(id).value = '';
     });
+    document.getElementById('f-branch_replace').style.display = 'none';
   }
 
   // clear error on input
