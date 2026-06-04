@@ -33,160 +33,83 @@
       80%  { margin-left: 15px; transform: rotate(-14deg) scaleX(1);   }
       100% { margin-left: 0px;  transform: rotate(0deg)  scaleX(1);    }
     }
-    .leaf {
-      position: fixed;
-      pointer-events: none;
-      z-index: 0;
-      animation: fall linear infinite;
-    }
-    .leaf-inner {
-      animation: sway ease-in-out infinite;
-    }
+    .leaf { position: fixed; pointer-events: none; z-index: 0; animation: fall linear infinite; }
+    .leaf-inner { animation: sway ease-in-out infinite; }
     .leaf svg { display: block; }
 
     /* ===== HEADER ===== */
-    .header {
-      text-align: center;
-      margin-bottom: 28px;
-      position: relative;
-      z-index: 1;
-    }
+    .header { text-align: center; margin-bottom: 28px; position: relative; z-index: 1; }
     .header-icon {
-      width: 70px; height: 70px;
-      background: #1a9e80;
-      border-radius: 50%;
+      width: 70px; height: 70px; background: #1a9e80; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px;
-      box-shadow: 0 4px 16px rgba(26,158,128,0.35);
+      margin: 0 auto 16px; box-shadow: 0 4px 16px rgba(26,158,128,0.35);
     }
     .header-icon svg { width: 36px; height: 36px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
     .header h1 { font-size: 26px; font-weight: 700; color: #1a6b56; margin-bottom: 6px; }
     .header p { font-size: 14px; color: #3a8c72; margin-bottom: 4px; }
     .header-notes {
-      display: inline-block;
-      text-align: left;
-      margin: 6px auto 0;
-      padding-left: 20px;
-      color: #3a8c72;
-      font-size: 13px;
-      line-height: 1.9;
+      display: inline-block; text-align: left; margin: 6px auto 0;
+      padding-left: 20px; color: #3a8c72; font-size: 13px; line-height: 1.9;
     }
 
     /* ===== CARD ===== */
     .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 28px 32px;
-      max-width: 680px;
-      margin: 0 auto 20px;
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      background: #fff; border-radius: 20px; padding: 28px 32px;
+      max-width: 680px; margin: 0 auto 20px;
+      position: relative; z-index: 1; box-shadow: 0 2px 20px rgba(0,0,0,0.07);
     }
 
     /* ===== SECTION TITLE ===== */
     .section-title {
       display: flex; align-items: center; gap: 8px;
       font-size: 16px; font-weight: 600; color: #1a9e80;
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 1.5px solid #e0f5ef;
+      margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1.5px solid #e0f5ef;
     }
     .section-title svg { width: 18px; height: 18px; fill: none; stroke: #1a9e80; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     /* ===== FIELDS ===== */
     .field { margin-bottom: 18px; }
     .field:last-child { margin-bottom: 0; }
-    .field label {
-      display: block; font-size: 14px; font-weight: 500;
-      color: #333; margin-bottom: 7px;
-    }
+    .field label { display: block; font-size: 14px; font-weight: 500; color: #333; margin-bottom: 7px; }
     .field label .req { color: #e05252; margin-left: 3px; }
-    .field label .opt { font-size: 12px; color: #aaa; font-weight: 400; margin-left: 6px; }
 
-    input[type="text"],
-    input[type="number"],
-    input[type="date"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 11px 16px;
-      border: 1.5px solid #d8ede8;
-      border-radius: 10px;
-      font-family: 'Sarabun', sans-serif;
-      font-size: 14px;
-      color: #333;
-      background: #fff;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      appearance: none;
+    input[type="text"], input[type="number"], select, textarea {
+      width: 100%; padding: 11px 16px;
+      border: 1.5px solid #d8ede8; border-radius: 10px;
+      font-family: 'Sarabun', sans-serif; font-size: 14px; color: #333;
+      background: #fff; outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s; appearance: none;
     }
     input:focus, select:focus, textarea:focus {
-      border-color: #1a9e80;
-      box-shadow: 0 0 0 3px rgba(26,158,128,0.12);
+      border-color: #1a9e80; box-shadow: 0 0 0 3px rgba(26,158,128,0.12);
     }
     input::placeholder, textarea::placeholder { color: #b0c9c2; }
     textarea { min-height: 80px; resize: vertical; }
 
-    /* date icon wrapper */
-    .input-icon-wrap { position: relative; }
-    .input-icon-wrap svg {
-      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
-      width: 16px; height: 16px; stroke: #1a9e80; fill: none;
-      stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
-      pointer-events: none;
-    }
-    .input-icon-wrap input { padding-left: 38px; }
-
-    /* select arrow */
     .select-wrap { position: relative; }
     .select-wrap::after {
-      content: '';
-      position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
-      width: 0; height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 6px solid #1a9e80;
-      pointer-events: none;
+      content: ''; position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+      width: 0; height: 0; border-left: 5px solid transparent;
+      border-right: 5px solid transparent; border-top: 6px solid #1a9e80; pointer-events: none;
     }
     .select-wrap select { padding-right: 36px; cursor: pointer; }
 
-    /* prefix input (ORTS) */
-    .prefix-wrap { display: flex; }
-    .prefix-wrap .prefix {
-      background: #1a6b56; color: #fff;
-      padding: 11px 14px; border-radius: 10px 0 0 10px;
-      font-size: 13px; font-weight: 600; white-space: nowrap;
-      border: 1.5px solid #1a6b56; border-right: none;
-    }
-    .prefix-wrap input {
-      border-radius: 0 10px 10px 0;
-      border-left: none;
-    }
-
-    /* row grid */
     .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-
-    /* hint */
     .hint { font-size: 12px; color: #aaa; margin-top: 5px; }
 
-    /* badge */
-    .badge {
-      display: inline-block; font-size: 11px; padding: 2px 9px;
-      border-radius: 99px; background: #e8f8f3; color: #1a9e80;
-      font-weight: 500; margin-left: 8px; vertical-align: middle;
+    /* disabled field */
+    .field-disabled input, .field-disabled select, .field-disabled textarea {
+      background: #f5f5f5 !important; color: #bbb !important;
+      border-color: #e8e8e8 !important; cursor: not-allowed; pointer-events: none;
     }
+    .field-disabled label { color: #bbb; }
 
     /* ===== SUBMIT ===== */
     .submit-wrap { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
     .submit-btn {
-      width: 100%; padding: 14px;
-      background: #1a9e80; color: #fff;
-      border: none; border-radius: 12px;
-      font-family: 'Sarabun', sans-serif;
-      font-size: 16px; font-weight: 600;
-      cursor: pointer;
+      width: 100%; padding: 14px; background: #1a9e80; color: #fff;
+      border: none; border-radius: 12px; font-family: 'Sarabun', sans-serif;
+      font-size: 16px; font-weight: 600; cursor: pointer;
       box-shadow: 0 4px 16px rgba(26,158,128,0.35);
       transition: background 0.2s, transform 0.1s;
       display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -200,51 +123,36 @@
       display: none; position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
       background: #1a6b56; color: #fff; padding: 12px 28px;
       border-radius: 40px; font-size: 14px; font-weight: 500;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 999;
-      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 999; white-space: nowrap;
     }
 
-    /* error highlight */
     .error-field input, .error-field select, .error-field textarea {
-      border-color: #e05252 !important;
-      box-shadow: 0 0 0 3px rgba(224,82,82,0.1) !important;
+      border-color: #e05252 !important; box-shadow: 0 0 0 3px rgba(224,82,82,0.1) !important;
     }
   </style>
 </head>
 <body>
 
-<!-- ===== FALLING LEAVES (JS generated) ===== -->
+<!-- ===== FALLING LEAVES ===== -->
 <div id="leaves-container"></div>
 <script>
 (function() {
   const colors = ['#5dbfa0','#3aaa88','#7ecfb8','#4db89a','#2e9e7a','#a8ddd0'];
-  const shapes = [
-    'M10 50 Q5 20 40 8 Q30 35 10 50Z',
-    'M8 48 Q2 18 38 5 Q35 30 8 48Z',
-    'M12 52 Q8 22 42 10 Q28 38 12 52Z',
-    'M6 46 Q0 16 36 4 Q32 32 6 46Z'
-  ];
+  const shapes = ['M10 50 Q5 20 40 8 Q30 35 10 50Z','M8 48 Q2 18 38 5 Q35 30 8 48Z','M12 52 Q8 22 42 10 Q28 38 12 52Z','M6 46 Q0 16 36 4 Q32 32 6 46Z'];
   const container = document.getElementById('leaves-container');
-  const COUNT = 14;
-
-  for (let i = 0; i < COUNT; i++) {
-    const size   = 20 + Math.random() * 32;
-    const left   = Math.random() * 100;
-    const dur    = 7 + Math.random() * 8;
-    const swayDur= 3 + Math.random() * 4;
-    const delay  = -(Math.random() * dur);
-    const color  = colors[Math.floor(Math.random() * colors.length)];
-    const shape  = shapes[Math.floor(Math.random() * shapes.length)];
-
+  for (let i = 0; i < 14; i++) {
+    const size = 20 + Math.random() * 32, left = Math.random() * 100;
+    const dur = 7 + Math.random() * 8, swayDur = 3 + Math.random() * 4;
+    const delay = -(Math.random() * dur);
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const shape = shapes[Math.floor(Math.random() * shapes.length)];
     const leaf = document.createElement('div');
     leaf.className = 'leaf';
     leaf.style.cssText = `left:${left}%;animation-duration:${dur}s;animation-delay:${delay}s;`;
-
     const inner = document.createElement('div');
     inner.className = 'leaf-inner';
     inner.style.cssText = `animation-duration:${swayDur}s;animation-delay:${delay * 0.5}s;`;
     inner.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 60 60"><path d="${shape}" fill="${color}" opacity="0.75"/></svg>`;
-
     leaf.appendChild(inner);
     container.appendChild(leaf);
   }
@@ -256,7 +164,7 @@
   <div class="header-icon">
     <svg viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
   </div>
-  <h1>แบบฟอร์มขออนุมัติขนส่ง (สำนักงานใหญ่)</h1>
+  <h1>แบบฟอร์มขออนุมัติขนส่ง</h1>
   <ul class="header-notes">
     <li>ยอด 5000 บาท ส่งฟรี (เลือกอนินรับผิดชอบค่าขนส่ง ไม่ต้องลงหมายเหตุ)</li>
     <li>กรณีบริษัทไม่ออกค่าจัดส่งให้ ให้ใส่เลขที่เอกสารและคิดค่าขนส่งตามระบบ SeniorSoft Promaxx (รับเงินจากผู้รับผิดชอบ)</li>
@@ -277,7 +185,17 @@
     </div>
     <div class="field" id="f-dept">
       <label>แผนก <span class="req">*</span></label>
-      <input type="text" id="dept" placeholder="ระบุแผนก" />
+      <div class="select-wrap">
+        <select id="dept">
+          <option value="">-- เลือกแผนก --</option>
+          <option value="ฝ่ายขาย">ฝ่ายขาย</option>
+          <option value="คลังสินค้า">คลังสินค้า</option>
+          <option value="บัญชี">บัญชี</option>
+          <option value="จัดซื้อ">จัดซื้อ</option>
+          <option value="HR">HR</option>
+          <option value="IT">IT</option>
+        </select>
+      </div>
     </div>
   </div>
 </div>
@@ -291,11 +209,31 @@
   <div class="row2">
     <div class="field" id="f-origin">
       <label>ต้นทาง <span class="req">*</span></label>
-      <input type="text" id="origin" placeholder="สถานที่ต้นทาง" />
+      <div class="select-wrap">
+        <select id="origin">
+          <option value="">-- เลือกต้นทาง --</option>
+          <option value="SRC">SRC</option>
+          <option value="KKL">KKL</option>
+          <option value="SSS">SSS</option>
+          <option value="ลูกค้า">ลูกค้า</option>
+          <option value="บริษัท">บริษัท</option>
+          <option value="อื่นๆ">อื่นๆ</option>
+        </select>
+      </div>
     </div>
     <div class="field" id="f-destination">
       <label>ปลายทาง <span class="req">*</span></label>
-      <input type="text" id="destination" placeholder="สถานที่ปลายทาง" />
+      <div class="select-wrap">
+        <select id="destination" onchange="toggleCustomerSection()">
+          <option value="">-- เลือกปลายทาง --</option>
+          <option value="SRC">SRC</option>
+          <option value="KKL">KKL</option>
+          <option value="SSS">SSS</option>
+          <option value="ลูกค้า">ลูกค้า</option>
+          <option value="บริษัท">บริษัท</option>
+          <option value="อื่นๆ">อื่นๆ</option>
+        </select>
+      </div>
     </div>
   </div>
   <div class="field" id="f-carrier">
@@ -306,7 +244,7 @@
         <option>GRAB EXPRESS</option>
         <option>SHIPPOP (DHL/EMS)</option>
         <option>LALAMOVE</option>
-        </select>
+      </select>
     </div>
   </div>
   <div class="field" id="f-transport_detail">
@@ -336,7 +274,7 @@
 </div>
 
 <!-- ===== SECTION 3: ข้อมูลลูกค้า / ผู้รับ ===== -->
-<div class="card">
+<div class="card" id="card-customer" style="display:none;">
   <div class="section-title">
     <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
     ข้อมูลลูกค้า / ผู้รับ
@@ -356,7 +294,7 @@
   <div class="field" id="f-payment_type">
     <label>มีเงินค่าจัดส่งเข้าที่อนิน <span class="req">*</span></label>
     <div class="select-wrap">
-      <select id="payment_type">
+      <select id="payment_type" onchange="togglePaymentFields()">
         <option value="">-- เลือกประเภทการชำระ --</option>
         <option value="สด">สด</option>
         <option value="โอน">โอน</option>
@@ -374,24 +312,22 @@
     ค่าขนส่งและเอกสาร
   </div>
   <div class="row2">
-    <div class="field">
-      <label>ค่าขนส่งตามระบบ Promaxx <span class="badge">ถ้ามี</span></label>
-      <input type="number" id="cost_promaxx" placeholder="0.00" min="0" step="0.01" />
-      <p class="hint">กรณีมีเลขที่เอกสาร</p>
+    <div class="field" id="f-doc_number">
+      <label id="label-doc_number">เลขที่เอกสาร</label>
+      <input type="text" id="doc_number" placeholder="เฉพาะรับเงินจากผู้รับผิดชอบ" oninput="togglePromaxxRequired()" />
     </div>
-    <div class="field">
-      <label>ค่าขนส่งตาม Platform <span class="badge">ถ้ามี</span></label>
-      <input type="number" id="cost_platform" placeholder="0.00" min="0" step="0.01" />
-      <p class="hint">กรณีไม่มีเลขที่เอกสาร</p>
+    <div class="field" id="f-cost_promaxx">
+      <label id="label-cost_promaxx">ค่าขนส่งตามระบบ Promaxx</label>
+      <input type="number" id="cost_promaxx" placeholder="กรณีมีเลขที่เอกสาร" min="0" step="0.01" />
     </div>
   </div>
   <div class="row2">
-    <div class="field">
-      <label>เลขที่เอกสาร <span class="badge">ถ้ามี</span></label>
-      <input type="text" id="doc_number" placeholder="เฉพาะรับเงินจากผู้รับผิดชอบ" />
+    <div class="field" id="f-cost_platform">
+      <label>ค่าขนส่งตาม Platform</label>
+      <input type="number" id="cost_platform" placeholder="กรณีไม่มีเลขที่เอกสาร" min="0" step="0.01" />
     </div>
-    <div class="field">
-      <label>เลขติดตามพัสดุ <span class="badge">ถ้ามี</span></label>
+    <div class="field" id="f-tracking_number">
+      <label>เลขติดตามพัสดุ <span class="req">*</span></label>
       <input type="text" id="tracking_number" placeholder="Tracking number" />
     </div>
   </div>
@@ -410,29 +346,89 @@
 <script>
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz7RDSorvoVd1L2SBdbUbzs96dVIHycfuPZvBpmXunp1auh7XZkMHCoTX6B_RWhe63m/exec';
 
-  const requiredFields = [
-    { id: 'emp_name',         label: 'ชื่อพนักงาน' },
-    { id: 'dept',             label: 'แผนก' },
-    { id: 'origin',           label: 'ต้นทาง' },
-    { id: 'destination',      label: 'ปลายทาง' },
-    { id: 'carrier',          label: 'จัดส่งโดย' },
-    { id: 'transport_detail', label: 'รายละเอียดการขนส่ง' },
-    { id: 'customer_info',    label: 'ข้อมูลลูกค้า' },
-    { id: 'payment_type',     label: 'ประเภทการชำระเงิน' },
-  ];
+  // ===== TOGGLE: บังคับ Promaxx เมื่อมีเลขที่เอกสาร =====
+  function togglePromaxxRequired() {
+    const docVal = document.getElementById('doc_number').value.trim();
+    const labelPromaxx = document.getElementById('label-cost_promaxx');
+    const promaxxField = document.getElementById('f-cost_promaxx');
+    if (docVal) {
+      labelPromaxx.innerHTML = 'ค่าขนส่งตามระบบ Promaxx <span class="req">*</span>';
+      promaxxField.classList.remove('field-disabled');
+    } else {
+      labelPromaxx.innerHTML = 'ค่าขนส่งตามระบบ Promaxx';
+      promaxxField.classList.remove('field-disabled');
+    }
+  }
 
+  // ===== TOGGLE: สาขาที่ส่งแทน =====
   function toggleBranchField() {
     const val = document.getElementById('transport_detail').value;
     const wrap = document.getElementById('f-branch_replace');
     wrap.style.display = val === 'ส่งของให้ลูกค้าแทนสาขาอื่น' ? 'block' : 'none';
-    if (val !== 'ส่งของให้ลูกค้าแทนสาขาอื่น') {
-      document.getElementById('branch_replace').value = '';
-    }
+    if (val !== 'ส่งของให้ลูกค้าแทนสาขาอื่น') document.getElementById('branch_replace').value = '';
   }
 
+  // ===== TOGGLE: ข้อมูลลูกค้า (เปิดถ้าปลายทาง = ลูกค้า/บริษัท/อื่นๆ) =====
+  function toggleCustomerSection() {
+    const val = document.getElementById('destination').value;
+    const show = ['ลูกค้า','บริษัท','อื่นๆ'].includes(val);
+    document.getElementById('card-customer').style.display = show ? 'block' : 'none';
+    if (!show) document.getElementById('customer_info').value = '';
+  }
+
+  // ===== TOGGLE: ปรับ field ตามการชำระเงิน =====
+  function togglePaymentFields() {
+    const val = document.getElementById('payment_type').value;
+    const isNone = val === 'ไม่มี';
+    const hasPay = ['สด','โอน','บัตร'].includes(val);
+
+    // ปิด Promaxx + เลขที่เอกสาร ถ้า "ไม่มี"
+    const promaxxField = document.getElementById('f-cost_promaxx');
+    promaxxField.classList.toggle('field-disabled', isNone);
+    if (isNone) { document.getElementById('cost_promaxx').value = ''; }
+
+    const docField = document.getElementById('f-doc_number');
+    docField.classList.toggle('field-disabled', isNone);
+    if (isNone) { document.getElementById('doc_number').value = ''; }
+
+    // ปิด Platform ถ้า สด/โอน/บัตร
+    const platformField = document.getElementById('f-cost_platform');
+    platformField.classList.toggle('field-disabled', hasPay);
+    if (hasPay) { document.getElementById('cost_platform').value = ''; }
+
+    // อัปเดต label เลขที่เอกสาร
+    const labelDoc = document.getElementById('label-doc_number');
+    labelDoc.innerHTML = hasPay
+      ? 'เลขที่เอกสาร <span class="req">*</span>'
+      : 'เลขที่เอกสาร';
+  }
+
+  // ===== VALIDATE & SUBMIT =====
   function handleSubmit() {
+    const payVal = document.getElementById('payment_type').value;
+    const destVal = document.getElementById('destination').value;
+    const needCustomer = ['ลูกค้า','บริษัท','อื่นๆ'].includes(destVal);
+    const needDoc = ['สด','โอน','บัตร'].includes(payVal);
+    const isNone = payVal === 'ไม่มี';
+
+    const baseRequired = [
+      { id: 'emp_name',         label: 'ชื่อพนักงาน' },
+      { id: 'dept',             label: 'แผนก' },
+      { id: 'origin',           label: 'ต้นทาง' },
+      { id: 'destination',      label: 'ปลายทาง' },
+      { id: 'carrier',          label: 'จัดส่งโดย' },
+      { id: 'transport_detail', label: 'รายละเอียดการขนส่ง' },
+      { id: 'payment_type',     label: 'ประเภทการชำระเงิน' },
+      { id: 'tracking_number',  label: 'เลขติดตามพัสดุ' },
+    ];
+
+    if (needCustomer) baseRequired.push({ id: 'customer_info', label: 'ข้อมูลลูกค้า' });
+    if (needDoc)      baseRequired.push({ id: 'doc_number',    label: 'เลขที่เอกสาร' });
+    const docVal = document.getElementById('doc_number').value.trim();
+    if (docVal) baseRequired.push({ id: 'cost_promaxx', label: 'ค่าขนส่งตามระบบ Promaxx' });
+
     let firstError = null;
-    requiredFields.forEach(f => {
+    baseRequired.forEach(f => {
       const el = document.getElementById(f.id);
       const wrap = document.getElementById('f-' + f.id);
       if (!el.value.trim()) {
@@ -460,10 +456,10 @@
       transport_detail: document.getElementById('transport_detail').value,
       branch_replace:   branchWrap.style.display !== 'none' ? document.getElementById('branch_replace').value : '',
       customer_info:    document.getElementById('customer_info').value,
-      payment_type:     document.getElementById('payment_type').value,
-      cost_promaxx:     document.getElementById('cost_promaxx').value,
+      payment_type:     payVal,
+      cost_promaxx:     isNone ? '' : document.getElementById('cost_promaxx').value,
       cost_platform:    document.getElementById('cost_platform').value,
-      doc_number:       document.getElementById('doc_number').value,
+      doc_number:       isNone ? '' : document.getElementById('doc_number').value,
       tracking_number:  document.getElementById('tracking_number').value,
     };
 
@@ -472,21 +468,15 @@
     btn.textContent = 'กำลังส่ง...';
 
     fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
+      method: 'POST', mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
-    .then(() => {
-      showToast();
-      resetForm();
-    })
-    .catch(() => {
-      showToast('⚠ เกิดข้อผิดพลาด กรุณาลองใหม่');
-    })
+    .then(() => { showToast(); resetForm(); })
+    .catch(() => { showToast('⚠ เกิดข้อผิดพลาด กรุณาลองใหม่'); })
     .finally(() => {
       btn.disabled = false;
-      btn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> ส่งคำขออนุมัติ`;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap: round; stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> ส่งคำขออนุมัติ`;
     });
   }
 
@@ -498,15 +488,20 @@
   }
 
   function resetForm() {
-    ['emp_name','dept','origin','destination','carrier',
-     'transport_detail','branch_replace','customer_info','payment_type',
-     'cost_promaxx','cost_platform','doc_number','tracking_number'].forEach(id => {
+    ['emp_name','dept','origin','destination','carrier','transport_detail',
+     'branch_replace','customer_info','payment_type','cost_promaxx',
+     'cost_platform','doc_number','tracking_number'].forEach(id => {
       document.getElementById(id).value = '';
     });
     document.getElementById('f-branch_replace').style.display = 'none';
+    document.getElementById('card-customer').style.display = 'none';
+    document.getElementById('f-cost_promaxx').classList.remove('field-disabled');
+    document.getElementById('f-doc_number').classList.remove('field-disabled');
+    document.getElementById('label-doc_number').innerHTML = 'เลขที่เอกสาร';
+    document.getElementById('label-cost_promaxx').innerHTML = 'ค่าขนส่งตามระบบ Promaxx';
+    document.getElementById('f-cost_platform').classList.remove('field-disabled');
   }
 
-  // clear error on input
   document.querySelectorAll('input, select, textarea').forEach(el => {
     el.addEventListener('input', () => {
       const wrap = document.getElementById('f-' + el.id);
